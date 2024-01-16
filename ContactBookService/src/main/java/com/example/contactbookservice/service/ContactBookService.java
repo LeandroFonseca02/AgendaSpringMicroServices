@@ -31,4 +31,12 @@ public class ContactBookService {
         contactBookDao.delete(contactBook.get());
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
+
+    public ResponseEntity<String> addContact(Integer id, Integer contactId) {
+        Optional<ContactBook> contactBook = contactBookDao.findById(id);
+        List<Integer> contactList = contactBook.get().getContactIdsList();
+        contactList.add(contactId);
+        contactBookDao.save(contactBook.get());
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
 }

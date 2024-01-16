@@ -30,4 +30,8 @@ public class ContactBookController {
         return contactBookService.deleteContactBook(id);
     }
 
+    @PostMapping("addContact/{id}/{contactId}")
+    public ResponseEntity<String> addContact(@PathVariable Integer id, @PathVariable Integer contactId){
+        return contactBookService.addContact(id, contactId);
+    }
 }

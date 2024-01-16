@@ -1,6 +1,7 @@
 package com.example.contactservice.service;
 
 import com.example.contactservice.dao.ContactDao;
+import com.example.contactservice.feign.ContactInterface;
 import com.example.contactservice.model.Contact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,14 +16,16 @@ public class ContactService {
 
     @Autowired
     ContactDao contactDao;
+    @Autowired
+    ContactInterface contactInterface;
 
     public ResponseEntity<List<Contact>> getAllContacts() {
         return new ResponseEntity<>(contactDao.findAll(), HttpStatus.OK);
     }
 
-    public ResponseEntity<String> createContact(Contact contact) {
-        contactDao.save(contact);
-        return new ResponseEntity<>("Success", HttpStatus.CREATED);
+    public ResponseEntity<String> createContact(Contact contact, int contactBookId) {
+        contactInterface.addContact(contactBookId, contactDao.save(contact).getId());
+        return new ResponseEntity<>("Sucess", HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> editContact(Contact contact, int id) {

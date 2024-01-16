@@ -20,9 +20,9 @@ public class ContactController {
         return contactService.getAllContacts();
     }
 
-    @PostMapping("create")
-    public ResponseEntity<String> createContact(@RequestBody Contact contact){
-        return contactService.createContact(contact);
+    @PostMapping("create/{contactBookId}")
+    public ResponseEntity<String> createContact(@RequestBody Contact contact, @PathVariable int contactBookId){
+        return contactService.createContact(contact, contactBookId);
     }
 
     @PostMapping("edit/{id}")
