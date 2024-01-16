@@ -9,8 +9,8 @@ POST http://localhost:8765/user-service/user/create
 Content-Type: application/json
 
 {
-  "name": "Teste",
-  "email": "teste@teste.com"
+  "name": "Teste2",
+  "email": "teste2@teste.com"
 }
 
 ###
@@ -25,4 +25,21 @@ Content-Type: application/json
 
 ###
 ## Delete User
-POST http://localhost:8765/user-service/user/delete/6
+POST http://localhost:8765/user-service/user/delete/10
+
+
+
+### ContactBook Endpoints
+
+## Get All ContactBooks
+GET http://localhost:8765/contactbook-service/contactbook/getAllContactBooks
+
+###
+
+## Create ContactBook
+POST http://localhost:8765/contactbook-service/contactbook/create
+
+###
+
+## Delete ContactBook
+POST http://localhost:8765/user-service/user/delete/10
