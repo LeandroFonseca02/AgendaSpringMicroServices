@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -17,5 +18,24 @@ public class UserService {
 
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userDao.findAll(), HttpStatus.OK);
+    }
+
+    public ResponseEntity<String> createUser(User user) {
+        userDao.save(user);
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<String> editUser(User user, Integer id) {
+        Optional<User> userFromDb = userDao.findById(id);
+        userFromDb.get().setName(user.getName());
+        userFromDb.get().setEmail(user.getEmail());
+        userDao.save(userFromDb.get());
+        return new ResponseEntity<>("Success", HttpStatus.OK);
+    }
+
+    public ResponseEntity<String> deleteUser(Integer id) {
+        Optional<User> userFromDb = userDao.findById(id);
+        userDao.delete(userFromDb.get());
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 }
