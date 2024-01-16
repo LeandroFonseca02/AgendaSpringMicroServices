@@ -42,4 +42,39 @@ POST http://localhost:8765/contactbook-service/contactbook/create
 ###
 
 ## Delete ContactBook
-POST http://localhost:8765/user-service/user/delete/10
+POST http://localhost:8765/contactbook-service/contactbook/delete/10
+
+
+### Contact Endpoints
+
+## Get All Contact
+GET http://localhost:8765/contact-service/contact/getAllContacts
+
+###
+
+## Create Contact
+POST http://localhost:8765/contact-service/contact/create
+Content-Type: application/json
+
+{
+  "name": "Teste",
+  "email": "teste@teste.com",
+  "phoneNumber": "teste"
+}
+
+###
+
+## Edit Contact
+POST http://localhost:8765/contact-service/contact/edit/1
+Content-Type: application/json
+
+{
+  "name": "Teste2",
+  "email": "teste@teste.com",
+  "phoneNumber": "teste"
+}
+
+###
+
+## Delete Contact
+POST http://localhost:8765/contact-service/contact/delete/1
