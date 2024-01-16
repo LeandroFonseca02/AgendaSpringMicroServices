@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient("CONTACTBOOK-SERVICE")
-public interface UserInterface {
+public interface ContactBookInterface {
     @PostMapping("contactbook/create")
     public ResponseEntity<Integer> createContactBook();
 

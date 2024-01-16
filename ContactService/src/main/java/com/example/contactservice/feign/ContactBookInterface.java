@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @FeignClient("CONTACTBOOK-SERVICE")
-public interface ContactInterface {
+public interface ContactBookInterface {
     @PostMapping("contactbook/addContact/{id}/{contactId}")
     public ResponseEntity<String> addContact(@PathVariable Integer id, @PathVariable Integer contactId);
 }

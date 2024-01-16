@@ -9,8 +9,8 @@ POST http://localhost:8765/user-service/user/create
 Content-Type: application/json
 
 {
-  "name": "Teste2",
-  "email": "teste2@teste.com"
+  "name": "Teste",
+  "email": "teste@teste.com"
 }
 
 ###
@@ -82,3 +82,18 @@ Content-Type: application/json
 
 ## Delete Contact
 POST http://localhost:8765/contact-service/contact/delete/1
+
+### Calendar Endpoints
+
+## Get All Calendars
+GET http://localhost:8765/calendar-service/calendar/getAllCalendars
+
+###
+
+## Create Calendar
+POST http://localhost:8765/calendar-service/calendar/create
+
+###
+
+## Delete Calendar
+POST http://localhost:8765/calendar-service/calendar/delete/2
