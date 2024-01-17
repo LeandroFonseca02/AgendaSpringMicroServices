@@ -30,4 +30,10 @@ public class CalendarController {
     public ResponseEntity<String> deleteCalendar(@PathVariable int id){
         return calendarService.deleteCalendar(id);
     }
+
+    @PostMapping("addAppointment/{id}/{appointmentId}")
+    public ResponseEntity<String> addAppointment(@PathVariable int id, @PathVariable int appointmentId){
+        return calendarService.addAppointment(id, appointmentId);
+    }
 }
+

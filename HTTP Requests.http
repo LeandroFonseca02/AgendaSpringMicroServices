@@ -97,3 +97,52 @@ POST http://localhost:8765/calendar-service/calendar/create
 
 ## Delete Calendar
 POST http://localhost:8765/calendar-service/calendar/delete/2
+
+### Appointments Endpoints
+
+## Get All Appointments
+GET http://localhost:8765/appointment-service/appointment/getAllAppointments
+
+###
+
+## Create Appointment
+POST http://localhost:8765/appointment-service/appointment/create
+Content-Type: application/json
+
+{
+  "name": "reuniao",
+  "date": "2024-01-17 00:10:49.000Z",
+  "descricao": "apresentacao"
+}
+
+###
+
+## Delete Appointment
+
+POST http://localhost:8765/appointment-service/appointment/delete/2
+
+## Edit Appointment
+
+###
+
+POST http://localhost:8765/appointment-service/appointment/edit/1
+Content-Type: application/json
+
+{
+  "name": "reuniao2",
+  "date": "2024-01-17 00:10:49.000Z",
+  "descricao": "apresentacao2"
+}
+
+###
+
+## Add Apointment
+
+POST http://localhost:8765/appointment-service/appointment/create/1
+Content-Type: application/json
+
+{
+  "name": "reuniao",
+  "date": "2024-01-17 00:10:49.000Z",
+  "descricao": "apresentacao"
+}

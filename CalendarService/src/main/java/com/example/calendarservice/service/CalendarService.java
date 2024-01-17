@@ -26,4 +26,11 @@ public class CalendarService {
         calendarDao.delete(calendarDao.findById(id).get());
         return new ResponseEntity<>("Sucess", HttpStatus.OK);
     }
+
+    public ResponseEntity<String> addAppointment(int id, int appointmentId) {
+        Optional<Calendar> calendar = calendarDao.findById(id);
+        calendar.get().getAppointmentList().add(appointmentId);
+        calendarDao.save(calendar.get());
+        return new ResponseEntity<>("Sucess", HttpStatus.OK);
+    }
 }
